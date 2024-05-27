@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cruds operation</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <!-- ================   fontawesome css  ================ -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- ================   bootstrap css  ================-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- ================   main-file-css  ================-->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!--================   Start  Section  ================-->
+
+    <div class="w-75 mx-auto bg-info p-2 rounded my-2">
+      <h1 class="text-center">CRUDS SYSTEM</h1>
+      <div class="form-floating my-2">
+        <input
+          oninput="validationInputs( this , 'msgName')"
+          type="text"
+          class="form-control"
+          id="productName"
+          placeholder=""
+        />
+        <label for="productName">Product Name</label>
+        <p id="msgName" class="alert alert-danger d-none">
+          Invalid data. Enter at least 3 characters
+        </p>
+      </div>
+
+      <div class="form-floating my-2">
+        <input
+          oninput="validationInputs( this , 'msgPrice')"
+          type="number"
+          class="form-control"
+          id="productPrice"
+          placeholder=""
+        />
+        <label for="productPrice">Product Price</label>
+        <p id="msgPrice" class="alert alert-danger d-none">
+          Enter at min 3 numbers and a max of 9 numbers
+        </p>
+      </div>
+
+      <div class="form-floating my-2">
+        <input
+          oninput="validationInputs( this , 'msgCategory')"
+          list="category"
+          type="text"
+          class="form-control"
+          id="productCategory"
+          placeholder=""
+        />
+        <label for="productCategory">Product Category</label>
+
+        <datalist id="category">
+          <option value="Tv" />
+          <option value="Mobile" />
+          <option value="Screens" />
+          <option value="Electronic" />
+        </datalist>
+        <p id="msgCategory" class="alert alert-danger d-none">
+          Please enter a valid type, such as TV, Mobile, Screens, or Electronic
+        </p>
+      </div>
+
+      <div class="form-floating my-2">
+        <textarea
+          oninput="validationInputs( this , 'msgDescription')"
+          style="height: 100px"
+          class="form-control"
+          id="productDescription"
+          placeholder=""
+        ></textarea>
+        <label for="productDescription">Product Description</label>
+        <p id="msgDescription" class="alert alert-danger d-none">
+          Enter at least 3 letters or 3 numbers
+        </p>
+      </div>
+
+      <div class="form-floating my-2">
+        <!-- onchange="validationInputs( this , 'msgImage')" -->
+        <input
+          type="file"
+          class="form-control"
+          id="productImage"
+          placeholder=""
+        />
+        <label for="productImage">Product Image</label>
+        <p id="msgImage" class="alert alert-danger d-none">
+          Please choose an image with a jpg, png, avif, jpeg or svg extension
+        </p>
+      </div>
+
+      <button onclick="addProduct()" id="btnAdd" class="btn btn-primary">
+        Add Product
+      </button>
+      <button
+        onclick="updateData()"
+        id="btnUpdate"
+        class="btn btn-warning d-none"
+      >
+        Update Product
+      </button>
+    </div>
+
+    <input
+      id="searchItem"
+      oninput="displayData()"
+      type="search"
+      class="form-control w-50 mx-auto my-2"
+      placeholder="Search By Name..."
+    />
+
+    <div>
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="tableData"></tbody>
+      </table>
+    </div>
+    <!--================   End  Section  ================-->
+
+    <!-- ================   bootstrap js  ================-->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- ================   fontawesome js  ================ -->
+    <script src="js/all.min.js"></script>
+    <!-- ================   main-file-js  ================-->
+    <script src="js/main.js"></script>
+  </body>
+</html>
